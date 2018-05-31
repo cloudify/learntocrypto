@@ -37,6 +37,7 @@ const client = jsonStream(net.connect(3876))
 client.write(command)
 client.on('data', function (msg) {
   console.log('Teller received:', msg)
+  client.end()
 })
 
-client.end()
+//
