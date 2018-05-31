@@ -41,7 +41,7 @@ const server = net.createServer(function (socket) {
         socket.write(CMD_STATUS_OK)
         break;
       case "withdraw":
-        if(canWithdraw(log, command.amount)) {
+        if(command.amount > 0 && canWithdraw(log, command.amount)) {
           log.push(command);
           socket.write(CMD_STATUS_OK)
         } else {
